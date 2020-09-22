@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include "solution.h"
 
 /**
  * Library-level functions.
@@ -87,8 +88,7 @@ bool checkForSignalingNan (uint64_t number) {
 
 bool checkForQuietNan (uint64_t number) {
     return checkNaN(number) &&
-           ((number & 0x0007FFFFFFFFFFFF) != 0) &&
-           getBit(number, 51);
+           (number & 0x0008000000000000) != 0;
 }
 
 
