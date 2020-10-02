@@ -2,6 +2,8 @@
 .global count_det
 
 count_det:
+    push {r4-r7}
+
     ldr r1, [r0]      // 1
     ldr r4, [r0, #16] // 5
     ldr r5, [r0, #32] // 9
@@ -35,4 +37,7 @@ count_det:
     add r1, r2, r1
     add r1, r3, r1
     mov r0, r1
+
+    pop {r4-r7}
+
     bx lr
